@@ -6,8 +6,7 @@ const addFlower = async (flower, id) => {
     let res = null;
     let err = null;
 
-    flower['edited_at'] = Timestamp.fromDate(new Date())
-    flower['created_at'] = Timestamp.fromDate(new Date())
+    flower['planted_at'] = Timestamp.fromDate(new Date())
     
     try {
         res = await setDoc(doc(db, 'flowers', id),

@@ -25,3 +25,15 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+a {
+  box-shadow: inset 0 0 0 0 #54b3d6;
+  border-radius: .25rem;
+  transition: all 500ms;
+  padding: 5px;
+}
+
+a:hover {
+  color: white;
+  box-shadow: inset  0 0 150px 0 #54b3d6;
+}
