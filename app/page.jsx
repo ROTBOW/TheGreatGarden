@@ -1,6 +1,5 @@
 "use client"
 import Link from 'next/link';
-import Image from 'next/image';
 
 import { useEffect, useState } from 'react';
 import getAllParterres from '@/firebase/parterres/getAllParterres';
@@ -26,8 +25,8 @@ const Home = () => {
 
     for (let i = 1; i < 10; i++) {
       p.push(
-        <div className='flex items-center justify-center border capitalize' key={`P${i}`}>
-          <Link href={`/parterre/P${i}`}>{parterres[`P${i}`]?.name}</Link>
+        <div className="flex items-center justify-center border capitalize" key={`P${i}`}>
+          <Link className='h-full w-full text-center align-middle' style={{paddingTop: '45%'}} href={`/parterre/P${i}`}>{parterres[`P${i}`]?.name}</Link>
         </div>
       )
     }
