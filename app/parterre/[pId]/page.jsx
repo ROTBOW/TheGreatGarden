@@ -31,13 +31,13 @@ const Parterre = () => {
                 let id = `${params.pId}F${i}${j}`
                 if (flowers[id]) {
                     grid.push(
-                        <div className="flex justify-center items-center border rounded-xl m-1 text-4xl" id={id}>
+                        <div className="flex justify-center items-center border rounded-xl m-1 text-4xl" id={id} key={id}>
                             <Link href={`/flower/${params.pId}/${id}`} className="aspect-square" style={{color: flowers[id].color}}>❀</Link>
                         </div>
                     )
                 } else {
                     grid.push(
-                        <div className="flex justify-center items-center p-2 border rounded-xl m-1" id={id}>
+                        <div className="flex justify-center items-center p-2 border rounded-xl m-1" id={id} key={id}>
                             <Link href={`/flower/${params.pId}/${id}/new`} className="aspect-square">__</Link>
                         </div>
                     )

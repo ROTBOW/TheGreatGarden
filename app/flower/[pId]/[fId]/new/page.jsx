@@ -10,8 +10,9 @@ import addFlower from "@/firebase/flowers/addFlower";
 
 const NewFlower = () => {
     const params = useParams();
-    const [pName, setPName] = useState(params.pId)
-    const [color, setColor] = useState('#fa05f2')
+    const [pName, setPName] = useState(params.pId);
+    const [color, setColor] = useState('#fa05f2');
+    const [note, setNote] = useState('');
 
     useEffect(() => {
         getParterre(params.pId)
@@ -27,11 +28,11 @@ const NewFlower = () => {
                 color,
                 parterre_name: pName,
                 parterre_id: params.pId,
+                note
             },
             params.fId
         ).then(() => {
             window.location.replace(`/flower/${params.pId}/${params.fId}`)
-            
         });
     }
 
@@ -46,8 +47,7 @@ const NewFlower = () => {
                     </label>
 
                     <label for="note">Note Attached To Flower</label>
-                    <textarea className="mb-16 p-1 rounded bg-gray-400 text-black" name="note" id="note"></textarea>
-
+                    <textarea className="mb-16 p-1 rounded bg-gray-400 text-black" name="note" id="note" onChange={(e) => {setNote(e.target.value)}}/>
 
                     <button className="p-1 rounded-xl bg-gray-400" type="submit">Plant Flower</button>
                 </form>
