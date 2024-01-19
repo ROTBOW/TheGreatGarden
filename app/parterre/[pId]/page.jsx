@@ -7,20 +7,24 @@ import addFlower from "@firebase/flowers/addFlower";
 import getDoument from "@firebase/getData";
 import getParterre from "@/firebase/parterres/getParterre";
 import getAllParterresFlowers from "@/firebase/flowers/getAllParterreFlowers";
+import Loading from "@/components/loading/loading";
+import MiniFlower from "@/components/miniFlower/MiniFlower";
 
 const Parterre = () => {
     const params = useParams();
-    const [pName, setPName] = useState('');
-    const [flowers, setFlowers] = useState({});
+    const [parterre, setParterre] = useState({name: '', color: ''});
+    const [flowers, setFlowers] = useState({loaded: false});
 
     useEffect(() => {
         getParterre(params.pId)
         .then(res => {
-            setPName(res.name)
+            setParterre(res);
         })
-        getAllParterresFlowers(params.pId)
-        .then(res => {
-            setFlowers(res);
+        .then(() => {
+            getAllParterresFlowers(params.pId)
+            .then(res => {
+                setFlowers(res);
+            })
         })
     }, [])
 
@@ -31,14 +35,16 @@ const Parterre = () => {
                 let id = `${params.pId}F${i}${j}`
                 if (flowers[id]) {
                     grid.push(
-                        <div className="flex justify-center items-center border rounded-xl m-1 text-4xl" id={id} key={id}>
-                            <Link href={`/flower/${params.pId}/${id}`} className="aspect-square" style={{color: flowers[id].color}}>❀</Link>
+                        <div className="flex justify-center items-center border rounded-xl m-1 bg-gray-800" id={id} key={id}>
+                            <Link href={`/flower/${params.pId}/${id}`} className="aspect-square" style={{color: flowers[id].color}}>
+                                <MiniFlower color={flowers[id].color}/>
+                            </Link>
                         </div>
                     )
                 } else {
                     grid.push(
-                        <div className="flex justify-center items-center p-2 border rounded-xl m-1" id={id} key={id}>
-                            <Link href={`/flower/${params.pId}/${id}/new`} className="aspect-square">__</Link>
+                        <div className="flex justify-center items-center p-2 border rounded-xl m-1 bg-gray-800" id={id} key={id}>
+                            <Link href={`/flower/${params.pId}/${id}/new`} className="aspect-square text-yellow-800">___</Link>
                         </div>
                     )
                 }
@@ -47,11 +53,15 @@ const Parterre = () => {
         return grid;
     }
 
+    if (flowers.loaded !== undefined) {
+        return <Loading/>
+    }
+
     return (
         <div className="w-full h-12">
-            <h2 className="text-4xl p-10 capitalize"><Link href='/'>The Great Garden</Link> -&gt; <Link href='#'>{pName}</Link></h2>
+            <h2 className="text-4xl p-10 capitalize"><Link href='/'>The Great Garden</Link> -&gt; <Link href='#'>{parterre.name}</Link></h2>
             <div className="flex justify-center">
-                <div className="grid grid-cols-10 bg-gray-800 w-3/5 h-auto aspect-square rounded-xl">
+                <div className={`grid grid-cols-10 w-3/5 h-auto aspect-square rounded-xl`} style={{backgroundColor: parterre.color}}>
                     {create_grid()}
                 </div>
             </div>
