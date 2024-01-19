@@ -26,7 +26,7 @@ const Home = () => {
 
     for (let i = 1; i < 10; i++) {
       p.push(
-        <div className='flex items-center justify-center border capitalize'>
+        <div className='flex items-center justify-center border capitalize' key={`P${i}`}>
           <Link href={`/parterre/P${i}`}>{parterres[`P${i}`]?.name}</Link>
         </div>
       )
@@ -40,7 +40,7 @@ const Home = () => {
       <h2 className="md:text-4xl p-10"><Link href="#">The Great Garden</Link></h2>
       
       <div className="flex justify-center">
-        <div className="grid grid-cols-3 grid-rows-3 w-2/5 aspect-square border">
+        <div className="grid grid-cols-3 grid-rows-3 w-2/5 aspect-square border rounded">
             {
               buildGrid()
             }

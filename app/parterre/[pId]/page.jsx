@@ -51,7 +51,7 @@ const Parterre = () => {
         <div className="w-full h-12">
             <h2 className="text-4xl p-10 capitalize"><Link href='/'>The Great Garden</Link> -&gt; <Link href='#'>{pName}</Link></h2>
             <div className="flex justify-center">
-                <div className="grid grid-cols-10 bg-gray-800 w-3/5 aspect-square rounded-xl">
+                <div className="grid grid-cols-10 bg-gray-800 w-3/5 h-auto aspect-square rounded-xl">
                     {create_grid()}
                 </div>
             </div>
