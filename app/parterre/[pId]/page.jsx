@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from 'next/link';
 
-import addFlower from "@firebase/flowers/addFlower";
-import getDoument from "@firebase/getData";
 import getParterre from "@/firebase/parterres/getParterre";
 import getAllParterresFlowers from "@/firebase/flowers/getAllParterreFlowers";
 import Loading from "@/components/loading/loading";
@@ -36,15 +34,21 @@ const Parterre = () => {
                 if (flowers[id]) {
                     grid.push(
                         <div className="flex justify-center items-center border rounded-xl m-1 bg-gray-800" id={id} key={id}>
-                            <Link href={`/flower/${params.pId}/${id}`} className="aspect-square" style={{color: flowers[id].color}}>
-                                <MiniFlower color={flowers[id].color}/>
-                            </Link>
+                            <div className="flex">
+                                <Link href={`/flower/${params.pId}/${id}`} className="aspect-square rounded-xl w-full h-full text-center">
+                                    <MiniFlower color={flowers[id].color}/>
+                                </Link>
+                            </div>
                         </div>
                     )
                 } else {
                     grid.push(
-                        <div className="flex justify-center items-center p-2 border rounded-xl m-1 bg-gray-800" id={id} key={id}>
-                            <Link href={`/flower/${params.pId}/${id}/new`} className="aspect-square text-yellow-800">___</Link>
+                        <div className="flex justify-center items-center border rounded-xl m-1 bg-gray-800" id={id} key={id}>
+                            <Link href={`/flower/${params.pId}/${id}/new`} className="aspect-square w-full h-full rounded-xl text-yellow-800">
+                                <div className="h-full flex justify-center align-middle items-center">
+                                    ___
+                                </div>
+                            </Link>
                         </div>
                     )
                 }
