@@ -4,6 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## techs used!
 
 [tailwind](https://nerdcave.com/tailwind-cheat-sheet)
+[firebase](https://cloud.google.com/firestore/docs/query-data/get-data#get_multiple_documents_from_a_collection)
 
 ## Getting Started
 
