@@ -16,7 +16,7 @@ const Home = () => {
   }, [])
 
 
-  if (Object.keys(parterres).length === 1) {
+  if (Object.keys(parterres).length === 0) {
     return <Loading/>
   }
 
