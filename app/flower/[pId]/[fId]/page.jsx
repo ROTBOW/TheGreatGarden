@@ -25,7 +25,8 @@ const Flower = () => {
         pName: params.pId,
         color: '#005CFF',
         planted_at: {seconds: 0},
-        note: ''
+        note: '',
+        planter: ''
     });
 
     useEffect(() => {
@@ -36,7 +37,8 @@ const Flower = () => {
                     pName: res.parterre_name,
                     color: res.color,
                     planted_at: res.planted_at,
-                    note: res.note
+                    note: res.note,
+                    planter: res.planter
                 })
             }
         })
@@ -48,9 +50,14 @@ const Flower = () => {
     return (
         <div>
             <h2 className="md:text-4xl p-10 capitalize"><Link href='/'>The Great Garden</Link> -&gt; <Link href={`/parterre/${params.pId}`}>{flower.pName}</Link> -&gt; <Link href='#'>{flower_id_to_title(params.fId)}</Link></h2>
-            <p className="text-lg ml-12">{params.fId} - Planted on {timestampToString(flower.planted_at)}</p>
+            <p className="text-lg ml-12">{params.fId} - Planted on {timestampToString(flower.planted_at)} {(flower.planter !== '') ? `by ${flower.planter}` : ''}</p>
             <div className="flex w-full justify-center">
-                <p className="ml-28 mt-28 font-mono max-h-96 max-w-lg overflow-y-auto p-1" style={{minWidth: '60px'}}>{flower.note}</p>
+                <div className="ml-28 mt-28 font-mono max-h-96 max-w-lg overflow-y-auto p-1" style={{minWidth: '60px'}}>
+                    {flower.note}<br/>
+                    {
+                        (flower.planter !== '') ? `- ${flower.planter}` : ''
+                    }
+                </div>
                 <Rose color={flower.color}/>
             </div>
             
