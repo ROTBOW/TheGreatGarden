@@ -34,7 +34,7 @@ const Parterre = () => {
                 if (flowers[id]) {
                     grid.push(
                         <div className="flex items-center justify-center m-1 bg-gray-800 border rounded-xl aspect-square" id={id} key={id}>
-                            <Link href={`/flower/${params.pId}/${id}`} className="w-full h-full pt-3 text-center rounded-xl">
+                            <Link href={`/flower/${params.pId}/${id}`} className="w-full h-full rounded-xl flex justify-center items-center">
                                 <MiniFlower color={flowers[id].color} hasNote={flowers[id].note.length > 0}/>
                             </Link>
                         </div>
