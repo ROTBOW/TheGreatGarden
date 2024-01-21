@@ -42,20 +42,20 @@ const NewFlower = () => {
 
     return (
         <div>
-            <h2 className="md:text-4xl p-10 capitalize"><Link href='/'>The Great Garden</Link> -&gt; <Link href={`/parterre/${params.pId}`}>{pName}</Link> -&gt; <Link href='#'>Empty Plot</Link></h2>
-            <div className="flex justify-around">
-                <form className="flex flex-col w-1/2 h-full p-20" onSubmit={handleSubmit}>
-                    <div className="flex pb-10 w-full justify-center">
+            <h2 className="p-10 capitalize md:text-4xl text-3xl"><Link href='/'>The Great Garden</Link> -&gt; <Link href={`/parterre/${params.pId}`}>{pName}</Link> -&gt; <Link href='#'>Empty Plot</Link></h2>
+            <div className="flex flex-col md:flex-row justify-around w-full">
+                <form className="flex flex-col md:w-1/2 w-full h-full md:p-20 pb-5 px-2" onSubmit={handleSubmit}>
+                    <div className="flex justify-center w-full pb-10">
                         <HexColorPicker color={color} onChange={setColor} />
                     </div>
 
                     <label for="note">Note Attached To Flower</label>
-                    <textarea className="mb-6 mt-1 p-1 rounded bg-gray-400 text-black" name="note" id="note" onChange={(e) => {setNote(e.target.value.trim())}}/>
+                    <textarea className="p-1 mt-1 mb-6 text-black bg-gray-400 rounded" name="note" id="note" onChange={(e) => {setNote(e.target.value.trim())}}/>
 
                     <label for="planter-input">Planter (you)</label>
                     <input className={`${style.planter} bg-gray-400 rounded mb-16 mt-1 w-2/5 text-black pl-2`} type='text' id="planter-input" placeholder="optional" onChange={(e) => {setPlanter(e.target.value.trim())}}/>
 
-                    <button className="p-1 rounded-xl bg-gray-400" type="submit">Plant Flower</button>
+                    <button className="p-1 bg-gray-400 rounded-xl" type="submit">Plant Flower</button>
                 </form>
                 <Rose color={color}/>
             </div>

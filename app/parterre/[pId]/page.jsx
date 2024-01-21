@@ -33,17 +33,17 @@ const Parterre = () => {
                 let id = `${params.pId}F${i}${j}`
                 if (flowers[id]) {
                     grid.push(
-                        <div className="flex justify-center items-center border rounded-xl m-1 bg-gray-800" id={id} key={id}>
-                            <Link href={`/flower/${params.pId}/${id}`} className="aspect-square rounded-xl w-full h-full text-center pt-4">
+                        <div className="flex items-center justify-center m-1 bg-gray-800 border rounded-xl aspect-square" id={id} key={id}>
+                            <Link href={`/flower/${params.pId}/${id}`} className="w-full h-full pt-3 text-center rounded-xl">
                                 <MiniFlower color={flowers[id].color} hasNote={flowers[id].note.length > 0}/>
                             </Link>
                         </div>
                     )
                 } else {
                     grid.push(
-                        <div className="flex justify-center items-center border rounded-xl m-1 bg-gray-800" id={id} key={id}>
-                            <Link href={`/flower/${params.pId}/${id}/new`} className="aspect-square w-full h-full rounded-xl text-yellow-800">
-                                <div className="h-full flex justify-center align-middle items-center">
+                        <div className="flex items-center justify-center m-1 bg-gray-800 border rounded-xl aspect-square" id={id} key={id}>
+                            <Link href={`/flower/${params.pId}/${id}/new`} className="w-full h-full text-yellow-800 rounded-xl">
+                                <div className="flex items-center justify-center h-full align-middle">
                                     ___
                                 </div>
                             </Link>
@@ -61,9 +61,9 @@ const Parterre = () => {
 
     return (
         <div className="w-full h-12">
-            <h2 className="text-4xl p-10 capitalize"><Link href='/'>The Great Garden</Link> -&gt; <Link href='#'>{parterre.name}</Link></h2>
+            <h2 className="p-10 md:text-4xl text-2xl capitalize"><Link href='/'>The Great Garden</Link> -&gt; <Link href='#'>{parterre.name}</Link></h2>
             <div className="flex justify-center">
-                <div className={`grid grid-cols-10 w-3/5 h-auto aspect-square rounded-xl`} style={{backgroundColor: parterre.color}}>
+                <div className={`grid md:grid-cols-10 grid-cols-5 md:w-3/5 w-full rounded-xl`} style={{backgroundColor: parterre.color}}>
                     {create_grid()}
                 </div>
             </div>
