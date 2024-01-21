@@ -34,11 +34,9 @@ const Parterre = () => {
                 if (flowers[id]) {
                     grid.push(
                         <div className="flex justify-center items-center border rounded-xl m-1 bg-gray-800" id={id} key={id}>
-                            <div className="flex">
-                                <Link href={`/flower/${params.pId}/${id}`} className="aspect-square rounded-xl w-full h-full text-center">
-                                    <MiniFlower color={flowers[id].color}/>
-                                </Link>
-                            </div>
+                            <Link href={`/flower/${params.pId}/${id}`} className="aspect-square rounded-xl w-full h-full text-center pt-4">
+                                <MiniFlower color={flowers[id].color} hasNote={flowers[id].note.length > 0}/>
+                            </Link>
                         </div>
                     )
                 } else {
