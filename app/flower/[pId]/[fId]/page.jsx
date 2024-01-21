@@ -49,10 +49,10 @@ const Flower = () => {
     }
     return (
         <div>
-            <h2 className="md:text-4xl p-10 capitalize"><Link href='/'>The Great Garden</Link> -&gt; <Link href={`/parterre/${params.pId}`}>{flower.pName}</Link> -&gt; <Link href='#'>{flower_id_to_title(params.fId)}</Link></h2>
-            <p className="text-lg ml-12">{params.fId} - Planted on {timestampToString(flower.planted_at)} {(flower.planter !== '') ? `by ${flower.planter}` : ''}</p>
-            <div className="flex w-full justify-center">
-                <div className="ml-28 mt-28 font-mono max-h-96 max-w-lg overflow-y-auto p-1" style={{minWidth: '60px'}}>
+            <h2 className="p-10 capitalize md:text-4xl"><Link href='/'>The Great Garden</Link> -&gt; <Link href={`/parterre/${params.pId}`}>{flower.pName}</Link> -&gt; <Link href='#'>{flower_id_to_title(params.fId)}</Link></h2>
+            <p className="md:ml-12 ml-5 mb-5 md:text-lg max-w-xs">{params.fId} - Planted on {timestampToString(flower.planted_at)} {(flower.planter !== '') ? `by ${flower.planter}` : ''}</p>
+            <div className="flex md:flex-row flex-col-reverse justify-center w-full">
+                <div className="max-w-lg p-1 overflow-y-auto font-mono md:ml-28 mx-5 mb-5 md:mt-28 max-h-96" style={{minWidth: '60px'}}>
                     {flower.note}<br/>
                     {
                         (flower.planter !== '') ? `- ${flower.planter}` : ''

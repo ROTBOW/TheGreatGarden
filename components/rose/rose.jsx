@@ -6,9 +6,9 @@ const Rose = ({color}) => {
 
     return (
         <div className="w-full flex justify-center">
-        <div className="border flex flex-col justify-center w-fit h-auto rounded-xl p-2">
-            <pre className="relative">
-                <code className="font-mono text-xl" style={{color: color}}>{`                            __
+        <div className="border flex flex-col justify-center w-fit h-auto rounded-xl p-2 mb-5">
+            <pre>
+                <code className="font-mono md:text-xl text-xs" style={{color: color}}>{`                            __
                      ___  _// \\
                    _/   \\/__|_ \\
                   /  __//_/==\\_| ___
@@ -19,7 +19,7 @@ const Rose = ({color}) => {
                     \\__|\\_\\=//_// _\\_|
                        \\___\\_____/
                          \\____/`}</code> <br/>
-                <code className="font-mono text-xl text-green-600">{`                     !!
+                <code className="font-mono md:text-xl text-xs text-green-600">{`                     !!
                       !!
            ___        !!      __ ___ _
           |\\|  \\       !!_.-~~ /|\\-  \\~-._
