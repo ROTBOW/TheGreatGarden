@@ -5,14 +5,15 @@ import { HexColorPicker } from "react-colorful";
 import style from './newFlower.module.scss';
 import Link from 'next/link';
 
-import Rose from "@/components/rose/rose";
 import getParterre from "@/firebase/parterres/getParterre";
 import addFlower from "@/firebase/flowers/addFlower";
+import FlowerPicker from "@/components/flowerPicker/flowerPicker";
 
 
 const NewFlower = () => {
     const params = useParams();
     const [pName, setPName] = useState(params.pId);
+    const [flowerType, setFlowerType] = useState('rose');
     const [color, setColor] = useState('#FFFFF');
     const [note, setNote] = useState('');
     const [planter, setPlanter] = useState('');
@@ -57,7 +58,7 @@ const NewFlower = () => {
 
                     <button className="p-1 bg-gray-400 rounded-xl" type="submit">Plant Flower</button>
                 </form>
-                <Rose color={color}/>
+                <FlowerPicker flower={flowerType} color={color}/>
             </div>
         </div>
     )

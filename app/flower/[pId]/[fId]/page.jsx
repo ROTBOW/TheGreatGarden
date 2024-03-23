@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import getFlower from '@firebase/flowers/getFlower';
-import Rose from "@/components/rose/rose";
 import Loading from "@/components/loading/loading";
+import FlowerPicker from "@/components/flowerPicker/flowerPicker";
 
 const flower_id_to_title = (fId) => {
     return 'Flower ' + fId.split('F')[1];
@@ -58,7 +58,8 @@ const Flower = () => {
                         (flower.planter !== '') ? `- ${flower.planter}` : ''
                     }
                 </div>
-                <Rose color={flower.color}/>
+                {/* <Rose color={flower.color}/> */}
+                <FlowerPicker flower="rose" color={flower.color}/>
             </div>
             
         </div>
