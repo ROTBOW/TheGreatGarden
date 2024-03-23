@@ -35,6 +35,7 @@ const Flower = () => {
             if (res) {
                 setFlower({
                     pName: res.parterre_name,
+                    flowerType: res?.flowerType, // this is new value so older flowers won't have it, there is a catch and default for undefined
                     color: res.color,
                     planted_at: res.planted_at,
                     note: res.note,
@@ -58,8 +59,7 @@ const Flower = () => {
                         (flower.planter !== '') ? `- ${flower.planter}` : ''
                     }
                 </div>
-                {/* <Rose color={flower.color}/> */}
-                <FlowerPicker flower="rose" color={flower.color}/>
+                <FlowerPicker flower={flower.flowerType} color={flower.color}/>
             </div>
             
         </div>

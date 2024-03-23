@@ -29,6 +29,7 @@ const NewFlower = () => {
         e.preventDefault();
         addFlower(
             {
+                flowerType,
                 color,
                 parterre_name: pName,
                 parterre_id: params.pId,
@@ -49,6 +50,13 @@ const NewFlower = () => {
                     <div className="flex justify-center w-full pb-10">
                         <HexColorPicker color={color} onChange={setColor} />
                     </div>
+
+                    <label>Flower type
+                        <select className="p-1 ml-1 mt-1 mb-6 text-black bg-gray-400 rounded" onChange={(e) => {setFlowerType(e.target.value)}}>
+                            <option value='rose'>Rose</option>
+                            <option value='hibiscus'>Hibiscus</option>
+                        </select>
+                    </label>
 
                     <label for="note">Note Attached To Flower</label>
                     <textarea className="p-1 mt-1 mb-6 text-black bg-gray-400 rounded" name="note" id="note" onChange={(e) => {setNote(e.target.value.trim())}}/>
