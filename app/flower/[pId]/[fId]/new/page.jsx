@@ -5,14 +5,15 @@ import { HexColorPicker } from "react-colorful";
 import style from './newFlower.module.scss';
 import Link from 'next/link';
 
-import Rose from "@/components/rose/rose";
 import getParterre from "@/firebase/parterres/getParterre";
 import addFlower from "@/firebase/flowers/addFlower";
+import FlowerPicker from "@/components/flowerPicker/flowerPicker";
 
 
 const NewFlower = () => {
     const params = useParams();
     const [pName, setPName] = useState(params.pId);
+    const [flowerType, setFlowerType] = useState('rose');
     const [color, setColor] = useState('#FFFFF');
     const [note, setNote] = useState('');
     const [planter, setPlanter] = useState('');
@@ -28,6 +29,7 @@ const NewFlower = () => {
         e.preventDefault();
         addFlower(
             {
+                flowerType,
                 color,
                 parterre_name: pName,
                 parterre_id: params.pId,
@@ -49,6 +51,13 @@ const NewFlower = () => {
                         <HexColorPicker color={color} onChange={setColor} />
                     </div>
 
+                    <label>Flower type
+                        <select className="p-1 ml-1 mt-1 mb-6 text-black bg-gray-400 rounded" onChange={(e) => {setFlowerType(e.target.value)}}>
+                            <option value='rose'>Rose</option>
+                            <option value='hibiscus'>Hibiscus</option>
+                        </select>
+                    </label>
+
                     <label for="note">Note Attached To Flower</label>
                     <textarea className="p-1 mt-1 mb-6 text-black bg-gray-400 rounded" name="note" id="note" onChange={(e) => {setNote(e.target.value.trim())}}/>
 
@@ -57,7 +66,7 @@ const NewFlower = () => {
 
                     <button className="p-1 bg-gray-400 rounded-xl" type="submit">Plant Flower</button>
                 </form>
-                <Rose color={color}/>
+                <FlowerPicker flower={flowerType} color={color}/>
             </div>
         </div>
     )
