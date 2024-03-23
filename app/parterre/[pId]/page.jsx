@@ -63,7 +63,7 @@ const Parterre = () => {
         <div className="w-full h-12">
             <h2 className="p-10 md:text-4xl text-2xl capitalize"><Link href='/'>The Great Garden</Link> -&gt; <Link href='#'>{parterre.name}</Link></h2>
             <div className="flex justify-center">
-                <div className={`grid md:grid-cols-10 grid-cols-5 md:w-3/5 w-full rounded-xl`} style={{backgroundColor: parterre.color}}>
+                <div className={`grid md:grid-cols-10 grid-cols-5 md:w-3/5 w-full rounded-xl mb-6`} style={{backgroundColor: parterre.color}}>
                     {create_grid()}
                 </div>
             </div>
