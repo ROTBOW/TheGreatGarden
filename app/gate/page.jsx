@@ -1,18 +1,34 @@
-/**
- * this is the gate, a portal, and an small interactive story
- * progress will be stored in localstorage so folk can continue on their own
- */
+'use client'
 
 import Link from 'next/link';
+import stories from '@/data/gateSteps';
+import { useRouter } from 'next/navigation';
+
+/**
+ * this is the gate, a portal, and an small interactive story
+ */
+
+
+
 
 const Gate = () => {
+    const router = useRouter();
 
+
+    const randomStep = () => {
+         /**
+         * The function `randomStep` generates a random index and navigates to a specific route using
+         * `router.push`.
+         */
+        let idx = Math.floor(Math.random() * Object.keys(stories).length)
+
+        router.push(`/gate/step/${idx}`)
+    };
     
     return (
         <div>
-            <h2 className="md:text-4xl text-2xl md:p-10 pl-10 py-4"><Link href="#">The Great Garden</Link></h2>
-            <div className="flex items-center flex-col">
-                <div className='text-center font-mono'>
+            <div className="flex items-center flex-col pt-10">
+                <div className='text-center font-mono md:w-1/2 w-2/3'>
                     You stand before the Gate, center of the Garden<br/>
                     It leads everywhere, and nowhere, <br/>
                     houses your deepest fears, cradles your faintest hopes. <br/>
@@ -46,9 +62,9 @@ const Gate = () => {
             
             </div>
                 <div>What do you do?</div>
-                <div className='flex justify-around w-1/4 pt-3'>
-                    <button>Enter</button>
-                    <button>Leave</button>
+                <div className='flex justify-around w-1/4 pt-3 animate-pulse'>
+                    <button onClick={randomStep}>Enter</button>
+                    <Link href="/">Leave</Link>
                 </div>
             </div>
         </div>
