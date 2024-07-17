@@ -22,8 +22,8 @@ const stories = {
     but it also is so little. He feels the world, and he feels nothing. You can tell he doesn't like to live like this. You don't understand what
     drives him to keep living like this. Somehow you know, he doesn't know either.`,
 
-    4: `We are here together, you and me, we are one. I have lived with you've regreted most. I've seen you at your lowest, when you were
-    in the dirt and covered in soot. I was there you commited the act we are most ashamed of, I've always been here you. Because I am you,
+    4: `We are here together, you and me, we are one. I have lived with what you've regreted most. I've seen you at your lowest, when you were
+    in the dirt and covered in soot. I was there when you commited the act we are most ashamed of, I've always been here you. Because I am you,
     we are broken, we have hurt and been hurt, we struggle. I am you, and I love you. I will never leave you, and you will never face anything alone.`
 }
 
